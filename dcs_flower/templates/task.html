@@ -108,8 +108,8 @@
       params = JSON.stringify(params_dic);
 
       $.post(url, data=params, function(resp){
-          $('#retry').append('&nbsp; &nbsp; <a target="_blank" href="{{ reverse_url('task', '') }}'+resp["task-id"]+'">'+resp["task-id"]+'</a>')
-          alert('重试成功, 任务ID:'+resp["task-id"]);
+          $('#retry').append('&nbsp; &nbsp; <a target="_blank" href="{{ reverse_url('task', '') }}'+resp["task-id"]+'">'+resp["task-id"]+'</a>');
+
       });
     }
   </script>
