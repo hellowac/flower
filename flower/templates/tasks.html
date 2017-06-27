@@ -71,4 +71,20 @@
     </tbody>
   </table>
 </div>
+<script>
+  var retry_task = function (task_name, args, kwargs){
+    // url = " reverse_url('send_task', getattr(task, 'name', None)) ";
+    url = "/api/task/send-task/" + task_name
+    params_dic = {
+      "args": args,
+      "kwargs": kwargs,
+    };
+
+    params = JSON.stringify(params_dic);
+
+    $.post(url, data=params, function(resp){
+        alert('重试成功, 任务ID:'+resp["task-id"]);
+    });
+  }
+</script>
 {% end %}

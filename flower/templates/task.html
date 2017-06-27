@@ -56,6 +56,10 @@
                 <td>Result</td>
                 <td>{{ getattr(task, 'result', '') }}</td>
               </tr>
+              <tr>
+                <td>operation</td>
+                <td id="retry"><a href="javascript:retry_task()">retry</a></td>
+              </tr>
               </tbody>
             </table>
           </div>
@@ -90,4 +94,23 @@
       </div>
     </div>
   </div>
+  <script>
+    var retry_task = function (){
+      // url = " reverse_url('send_task', getattr(task, 'name', None)) ";
+      url = "/api/task/send-task/{{ getattr(task, 'name', None) }}"
+      var kwargs = {% raw task.kwargs %};
+      kwargs['retry'] = true;
+      params_dic = {
+        "args": {% raw '['+str(task.args)[1:-1]+']' %},
+        "kwargs": kwargs,
+      };
+
+      params = JSON.stringify(params_dic);
+
+      $.post(url, data=params, function(resp){
+          $('#retry').append('&nbsp; &nbsp; <a target="_blank" href="{{ reverse_url('task', '') }}'+resp["task-id"]+'">'+resp["task-id"]+'</a>')
+          alert('重试成功, 任务ID:'+resp["task-id"]);
+      });
+    }
+  </script>
 {% end %}
