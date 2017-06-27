@@ -40,8 +40,8 @@ class FlowerCommand(Command):
         self.setup_logging()
 
         self.app.loader.import_default_modules()
-        flower = Flower(capp=self.app, options=options, **settings)
-        atexit.register(flower.stop)
+        dcs_flower = Flower(capp=self.app, options=options, **settings)
+        atexit.register(dcs_flower.stop)
 
         def sigterm_handler(signal, frame):
             logger.info('SIGTERM detected, shutting down')
@@ -51,7 +51,7 @@ class FlowerCommand(Command):
         self.print_banner('ssl_options' in settings)
 
         try:
-            flower.start()
+            dcs_flower.start()
         except (KeyboardInterrupt, SystemExit):
             pass
 
