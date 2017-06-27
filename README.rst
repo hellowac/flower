@@ -1,9 +1,13 @@
+dcs_flower
+==========
 
-## dcs_flower
+从 `celery flower`_ 二次开发而来. 具体文档参考: `flower_doc`_.
 
-从 [celery flower]() 二次开发而来. 具体文档参考: [flower.readthedocs.io](http://flower.readthedocs.io/en/latest/index.html)
+.. _celery flower: https://github.com/mher/flower
+.. _flower_doc: http://flower.readthedocs.io/en/latest/index.html
 
-二次开发的新功能:
+新功能
+------
 
 - 任务详细页面 `retry` 功能.
 
