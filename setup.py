@@ -12,7 +12,7 @@ version = re.compile(r'VERSION\s*=\s*\((.*?)\)')
 def get_package_version():
     "returns package version without importing it"
     base = os.path.abspath(os.path.dirname(__file__))
-    with open(os.path.join(base, "flower/__init__.py")) as initf:
+    with open(os.path.join(base, "dcs_flower/__init__.py")) as initf:
         for line in initf:
             m = version.match(line.strip())
             if not m:
@@ -50,7 +50,7 @@ if sys.version_info < (3, 0):
 
 
 setup(
-    name='flower',
+    name='dcs_flower',
     version=get_package_version(),
     description='Celery Flower',
     long_description=open('README.rst').read(),
@@ -63,14 +63,14 @@ setup(
     install_requires=install_requires,
     test_suite="tests",
     tests_require=get_requirements('test.txt'),
-    package_data={'flower': ['templates/*', 'static/*.*',
+    package_data={'dcs_flower': ['templates/*', 'static/*.*',
                              'static/**/*.*', 'static/**/**/*.*']},
     entry_points={
         'console_scripts': [
-            'flower = flower.__main__:main',
+            'dcs_flower = dcs_flower.__main__:main',
         ],
         'celery.commands': [
-            'flower = flower.command:FlowerCommand',
+            'dcs_flower = dcs_flower.command:FlowerCommand',
         ],
     },
 )

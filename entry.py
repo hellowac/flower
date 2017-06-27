@@ -5,8 +5,8 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-from flower.command import FlowerCommand
-from flower.utils import bugreport
+from dcs_flower.command import FlowerCommand
+from dcs_flower.utils import bugreport
 
 
 
