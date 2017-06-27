@@ -6,7 +6,7 @@ from tornado.options import define
 from tornado.options import options
 
 
-DEFAULT_CONFIG_FILE = 'flowerconfig.py'
+DEFAULT_CONFIG_FILE = 'dcs_flowerconfig.py'
 
 
 define("port", default=5555,
@@ -33,9 +33,9 @@ define("max_workers", type=int, default=5000,
        help="maximum number of workers to keep in memory")
 define("max_tasks", type=int, default=10000,
        help="maximum number of tasks to keep in memory")
-define("db", type=str, default='flower',
+define("db", type=str, default='dcs_flower.db',
        help="flower database file")
-define("persistent", type=bool, default=False,
+define("persistent", type=bool, default=True,
        help="enable persistent mode")
 define("broker_api", type=str, default=None,
        help="inspect broker e.g. http://guest:guest@localhost:15672/api/")
