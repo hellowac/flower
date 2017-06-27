@@ -29,9 +29,9 @@ db    flower    dcs_flower.db   数据持久化时的数据文件名
   $ dcs_flower --broker=redis://localhost:6379/0
 
 在celery中启动: ::
+
   $ celery dcs_flower -A flower_task
   $ celery dcs_flower -app=flower_task
-
 
 *默认持久化.*
 
