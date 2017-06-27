@@ -53,7 +53,7 @@ setup(
     name='dcs_flower',
     version=get_package_version(),
     description='Celery Flower',
-    long_description=open('README.rst').read(),
+    long_description=open('README.md').read(),
     author='Mher Movsisyan',
     author_email='mher.movsisyan@gmail.com',
     url='https://github.com/mher/flower',
